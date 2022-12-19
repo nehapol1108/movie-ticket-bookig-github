@@ -1,9 +1,12 @@
 import React from 'react'
+import Footer from '../Footer'
+import Navbar from '../Navbar'
 
 const MoviePage = () => {
   return (
     <div>
-      moviepage
+      <Navbar/>
+      <Footer/>
     </div>
   )
 }
