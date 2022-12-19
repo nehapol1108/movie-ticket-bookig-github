@@ -10,6 +10,8 @@ const movieRoutes = require("./routes/movieRoutes");
 mongoose.set('strictQuery', false);
 dotenv.config();
 connectDB();
+
+app.use(express.urlencoded({ extended: true }));
 app.get("/",(req,res)=>{
     res.send("API is running");
 })
