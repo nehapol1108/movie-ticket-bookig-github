@@ -6,9 +6,9 @@ function App() {
   return (
     <>
     <div className='App'>
-       <Route path="/" component={Homepage} exact/>
-       <Route path="/movies" component={MoviePage} exact/>
+       <Route path="/" component={Homepage} exact/> 
     </div>
+    <Route path="/movies" component={MoviePage}/>
     
     </>
   )
