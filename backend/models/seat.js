@@ -1,13 +1,26 @@
 const mongoose = require("mongoose");
-const movieSchema = mongoose.Schema(
+const MovieEvent = require("./movieModel");
+const seatSchema = mongoose.Schema(
   {
-    moviename: { type: String, required: true },
-    movietprice: { type: String, required: true },
-    movietime: { type: String, required: true },
-    moviepic: { type: String, required: true },
+    movieId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: MovieEvent,
+    },
+    seatBooked: [
+      {
+        userName: {
+          type: String,
+          default: "",
+        },
+        seatId: {
+          type: Number,
+          default: 0,
+        },
+      },
+    ],
   },
   { timestamps: true }
 );
 
-const MovieEvent = mongoose.model("Movie", movieSchema);
-module.exports = MovieEvent;
+const SeatEvent = mongoose.model("Seat", seatSchema);
+module.exports = SeatEvent;
