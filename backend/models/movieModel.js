@@ -4,6 +4,7 @@ const movieSchema = mongoose.Schema(
       moviename: { type: String, required: true },
       movietprice: { type: String, required: true },
       movietime: { type: String, required: true },
+      moviepic: { type: String, required: true }
     },
     { timestamps: true }
   );

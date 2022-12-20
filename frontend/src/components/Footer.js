@@ -4,49 +4,89 @@ import { NavLink } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 const Footer = () => {
   return (
-    <div className="main-footer">
-    <div className="container">
-      <div className="row">
-        {/* Column1 */}
-        <div className="col">
-          <div className="logo">
-          <h2>
-            <span>M</span>ovie
-            <span>B</span>ooking
-            <span>W</span>ebsite
-          </h2>
-      </div>
+    <> <footer id="footer">
+    <div className="footer-top">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-4 col-md-6 footer-contact">
+            <h3>
+              PUNE<span>.</span>
+            </h3>
+            <p>
+              Sr. No 27, Pune-Satara Road
+              <br /> Dhankawadi, Pune-411 043,
+              <br />
+              Maharashtra (India).
+              <br />
+              <br />
+              <strong>Phone:</strong> +1 1234567890
+              <br />
+              <strong>Email:</strong> moviebooking@gmail.com
+              <br />
+            </p>
+          </div>
 
-        
+          <div className="col-lg-4 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li>
+                <i className="bx bx-chevron-right"></i>{" "}
+                <a href="/#">Home</a>
+              </li>
+              <li>
+                <i className="bx bx-chevron-right"></i>{" "}
+                <a href="/#about">About us</a>
+              </li>
+              <li>
+                <i className="bx bx-chevron-right"></i>{" "}
+                <a href="/#contact">Services</a>
+              </li>
+              <li>
+                <i className="bx bx-chevron-right"></i>{" "}
+                <a href="/#faq">Terms of service</a>
+              </li>
+            </ul>
+          </div>
+
+          <div className="col-lg-4 col-md-6 footer-links">
+            <h4>Our Social Networks</h4>
+            <p>
+              These are our Social media handles to coonect for more
+              information!
+            </p>
+            <div className="social-links mt-3">
+              <a href="/#" className="twitter">
+                <i className="bx bxl-twitter"></i>
+              </a>
+              <a href="/#" className="facebook">
+                <i className="bx bxl-facebook"></i>
+              </a>
+              <a href="/#" className="instagram">
+                <i className="bx bxl-instagram"></i>
+              </a>
+              <a href="/#" className="google-plus">
+                <i className="bx bxl-skype"></i>
+              </a>
+              <a href="/#" className="linkedin">
+                <i className="bx bxl-linkedin"></i>
+              </a>
+            </div>
+          </div>
         </div>
-        {/* Column2 */}
-        <div className="col">
-          <h1>Links</h1>
-          <ui className="list-unstyled size">
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/">Login</NavLink></li>
-            <li><NavLink to="/">Signup</NavLink></li>
-          </ui>
-        </div>
-        {/* Column3 */}
-        <div className="col">
-          <h4>WELL ANOTHER COLUMN</h4>
-          <ui className="list-unstyled size">
-            <li>DANK MEMES</li>
-            <li>OTHER STUFF</li>
-            <li>GUD STUFF</li>
-          </ui>
-        </div>
-      </div>
-      <hr />
-      <div className="row">
-        <p className="col-sm size xopy">
-          &copy;{new Date().getFullYear()} Movie booking website | All rights reserved |
-          Terms Of Service | Privacy
-        </p>
       </div>
     </div>
-  </div>
+
+    <div className="container py-4 m-auto">
+      <div className="copyright">
+        &copy; Copyright{" "}
+        <strong>
+          <span>Movie Booking Website</span>
+        </strong>
+        . All Rights Reserved
+      </div>
+    </div>
+  </footer>
+</>
   )
 }
 
