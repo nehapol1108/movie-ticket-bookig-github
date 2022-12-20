@@ -3,7 +3,7 @@ import "../cssfile/footer.css"
 import 'bootstrap/dist/css/bootstrap.css';
 const Footer = () => {
   return (
-    <> <footer id="footer">
+    <> <footer id="footer" className='colorfooter'>
     <div className="footer-top">
       <div className="container">
         <div className="row">

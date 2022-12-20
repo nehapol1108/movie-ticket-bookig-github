@@ -20,6 +20,15 @@
     background-size: cover;
     background-position: center;
   } */
+  .colorr{
+    background-color: rgb(237, 250, 254);
+  }
+  .about{
+    font-size: 20px;
+    font-family: 'Work Sans';
+    font-weight: 600;
+    color: black;
+  }
   .main-nav {
     position: relative;
     background-color: rgb(220, 239, 246);

@@ -1,5 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 export default function Navbar() {
+
+  const history = useHistory();
+
   const MobileToggle = () => {
     var mobileTogggle = document.getElementById("mobileTogl");
     var navbar = document.getElementById("navbar");
@@ -18,17 +22,14 @@ export default function Navbar() {
     }
   };
 
-  const DropDownAct = (e) => {
-    var navbar = document.getElementById("navbar");
-    var a = document.getElementById("dropdownA");
-    if (navbar.classList.contains("navbar-mobile")) {
-      e.preventDefault();
-      a.nextElementSibling.classList.toggle("dropdown-active");
-    }
-  };
+
+  const handleLogout=()=>{
+    localStorage.removeItem("userInfo");
+    history.push("/");
+  }
   return (
     <>
-      <header id="header" className="d-flex align-items-center">
+      <header id="header" className="d-flex align-items-center ">
         <div className="container d-flex align-items-center justify-content-between">
           <h1 className="logo">
             <a href="/">
@@ -50,7 +51,7 @@ export default function Navbar() {
                 <a
                   className="nav-link scrollto"
                   onClick={HideNavbar}
-                  href="#about"
+                  href="#hero"
                 >
                   <i className="bi bi-info-circle"></i> About
                 </a>
@@ -66,7 +67,7 @@ export default function Navbar() {
                 </a>
               </li>
             
-              <li>
+              <li onClick={handleLogout}>
                 <a
                   className="nav-link scrollto"
                   onClick={HideNavbar}
