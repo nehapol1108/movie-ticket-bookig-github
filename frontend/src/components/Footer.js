@@ -30,15 +30,15 @@ const Footer = () => {
             <ul>
               <li>
                 <i className="bx bx-chevron-right"></i>{" "}
-                <a href="/#">Home</a>
+                <a href="#hero">Home</a>
               </li>
               <li>
                 <i className="bx bx-chevron-right"></i>{" "}
-                <a href="/#about">About us</a>
+                <a href="#hero">About us</a>
               </li>
               <li>
                 <i className="bx bx-chevron-right"></i>{" "}
-                <a href="/#contact">Services</a>
+                <a href="#faq">Faq</a>
               </li>
               <li>
                 <i className="bx bx-chevron-right"></i>{" "}
