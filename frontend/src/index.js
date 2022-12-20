@@ -4,15 +4,20 @@ import './index.css';
 import App from './App';
 import {ChakraProvider} from "@chakra-ui/react";
 import {BrowserRouter} from "react-router-dom"
+// import MovieProvider from './context/MovieProvider';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  
+    
     <BrowserRouter>
+    {/* <MovieProvider> */}
     <ChakraProvider>
     <App />
     </ChakraProvider>
+    {/* </MovieProvider> */}
     </BrowserRouter>
-  </React.StrictMode>
+    
+  
 );
 
 // If you want to start measuring performance in your app, pass a function

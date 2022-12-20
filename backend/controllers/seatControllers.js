@@ -4,7 +4,7 @@ const SeatEvent = require("../models/seat");
 
 module.exports.postSeatBook = async (req, res) => {
   try {
-    const {bookId,userName,seatId} = req.body;
+    const {movieId,seatBooked} = req.body;
     let seat = await SeatEvent.findById(bookId);
     let obj = {
       seatId: req.body.seatId,
