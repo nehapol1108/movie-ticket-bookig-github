@@ -4,17 +4,27 @@ const SeatEvent = require("../models/seat");
 
 module.exports.postSeatBook = async (req, res) => {
   try {
-    const { movieId, seatBooked } = req.body;
-    const query = {
-      movieId: "movieId",
-    };
-    const updateDoc = {
-      $push: {
-        "seatBooked.$[]": "seatBooked",
+    let detail = await SeatEvent.find({ movieId: req.body.movieId });
+    console.log(detail);
+    let detailArray = detail.seatBooked ? detail.seatBooked : [];
+    console.log("body ", req.body);
+    console.log("detail array", detailArray);
+    let newDetail = [
+      ...detailArray,
+      {
+        userName: req.body.userName,
+        seatId: req.body.seatId,
       },
-    };
-    const result = await SeatEvent.updateOne(query, updateDoc);
-    res.send(result);
+    ];
+    // detailArray.push(newDetail);
+    // const query = { movieId: req.body.movieId };
+    // const update = { $set: { seatBooked: newDetail } };
+    // const options = { upsert: true };
+    console.log("mewDeatil", newDetail);
+    // await SeatEvent.updateOne(query, update, options);
+    console.log(detailArray);
+    await detail.save();
+    res.status(201).send(newDetail);
   } catch (error) {
     console.log(error);
   }

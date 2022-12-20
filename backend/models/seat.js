@@ -4,7 +4,7 @@ const seatSchema = mongoose.Schema(
   {
     movieId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: MovieEvent,
+      ref: "MovieEvent",
     },
     seatBooked: [
       {
