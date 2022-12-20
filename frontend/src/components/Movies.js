@@ -30,8 +30,6 @@ const Movies = () => {
       <div className="preedit"><span className="postedit">MovieName : </span> {movie.moviename} </div>
       <div className="preedit"><span className="postedit">Movie Ticket Price : </span>{movie.movietprice} </div>
       <div className="preedit"><span className="postedit">Movie Time</span>{movie.movietime}</div>
-      <div className="preedit"><span className="postedit">Job posted on :  </span>{movie.movietprice} </div>
-      <div className="preedit"><span className="postedit">Last Date to apply :  </span>{movie.movietprice} </div>
       
       {/* <button className="bg-danger" onClick={(e) => deleteHandler(post.id)}>Delete Job</button>
       <button className="bg-primary">Applied by</button> */}

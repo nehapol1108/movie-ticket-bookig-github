@@ -5,6 +5,7 @@ import Signup from '../Authentication/Signup';
 import "../../App.css"
 import Homepagenav from './Homepagenav';
 
+
 const HomePage = () => {
  
   return (
@@ -40,7 +41,7 @@ const HomePage = () => {
         </Tabs>
       </Box>
     </Container>
-    </div>
+  </div>
   )
 }
 
