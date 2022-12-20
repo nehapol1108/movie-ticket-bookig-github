@@ -2,11 +2,14 @@ import {React } from 'react'
 import {Container,Box,Text,TabPanel,Tabs,TabList,Tab,TabPanels} from "@chakra-ui/react";
 import Login from '../Authentication/Login';
 import Signup from '../Authentication/Signup';
-
+import "../../App.css"
 
 const HomePage = () => {
  
   return (
+
+    <div className='App4'>
+     
     <Container maxW='xl' centerContent>
       <Box display='flex' 
       justifyContent='center' 
@@ -16,7 +19,7 @@ const HomePage = () => {
       m="40px 0 15px 0"
       borderRadius="lg"
       borderWidth = "1px" >
-        <Text fontSize='4xl' fontFamily="Work sans" color="black" >Talk-A-Tive</Text>
+        <Text fontSize='4xl' fontFamily="Work sans" color="black" >Movie-Booking-Website</Text>
       </Box>
       <Box bg="white" w="100%" p={4} borderRadius="lg" color="black" BorderWidth="1px" >
         <Tabs variant='soft-rounded'>
@@ -36,6 +39,7 @@ const HomePage = () => {
         </Tabs>
       </Box>
     </Container>
+    </div>
   )
 }
 

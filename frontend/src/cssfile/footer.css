@@ -1,20 +1,25 @@
 .main-footer {
-    color: black;
-    background-color: white;
-    padding-top: 7em;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    
-  }
-  .size{
-    font-size: 19px;
-  }
-  .xopy{
-   text-align: center;
-  }
-  .mobile-menu-link {
-    grid-column: 2/4;
-    position: relative;
-    z-index: 99;
-  }
+  color: black;
+  background-color: rgb(220, 239, 246);
+  padding-top: 6em;
+  position: relative;
+  bottom: 0px;
+  width: 100%;
+  
+}
+.size{
+  font-size: 19px;
+}
+.xopy{
+  text-align: center;
+}
+.mobile-menu-link {
+  grid-column: 2/4;
+  position: relative;
+  z-index: 99;
+}
+
+.size2{
+  font-size: 20px;
+  font-weight: 500;
+}

@@ -1,6 +1,10 @@
 import React from 'react'
 import Requests from "../api/requests.js";
+import "../cssfile/movies.css"
 import { useState, useEffect } from "react";
+import 'bootstrap/dist/css/bootstrap.css';
+
+
 const Movies = () => {
     const [loading, setLoading] = useState(false)
   const [movieData, setMovieData] = useState([]);
@@ -19,16 +23,40 @@ const Movies = () => {
         }
       }, []);
     const movieInfo = movieData.map((movie)=>(
-        <div>
-            {movie?.moviename}
-            {movie?.movietprice}
-            {movie?.movietime}
-        </div>
+      <div className="recipe">  
+      <img src="./poster/poster1.jpg"/> 
+      <div className="position">Position :{movie.movietprice} </div>
+      <hr/>
+      <div className="preedit"><span className="postedit">MovieName : </span> {movie.moviename} </div>
+      <div className="preedit"><span className="postedit">Movie Ticket Price : </span>{movie.movietprice} </div>
+      <div className="preedit"><span className="postedit">Movie Time</span>{movie.movietime}</div>
+      <div className="preedit"><span className="postedit">Job posted on :  </span>{movie.movietprice} </div>
+      <div className="preedit"><span className="postedit">Last Date to apply :  </span>{movie.movietprice} </div>
+      
+      {/* <button className="bg-danger" onClick={(e) => deleteHandler(post.id)}>Delete Job</button>
+      <button className="bg-primary">Applied by</button> */}
+      <div className="buttons">
+      <button className="bg-danger btnpost" >Book Tickets</button>
+      
+     {/* // <Link className="bg-primary btnpost" to="/displayapplied"> Applied by</Link> */}
+
+    </div>
+      
+    </div>
+
+  
+
     ))
   return (
-    <div>
-      {movieInfo}
-    </div>
+    <>
+   <div>
+      <div className="mainn">
+     <div className="recipes">
+          {movieInfo}
+        </div>
+      </div>
+  </div>
+   </>
   )
 }
 
