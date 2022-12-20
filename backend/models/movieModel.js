@@ -10,7 +10,20 @@ const movieSchema = mongoose.Schema(
       default:
         "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
     },
-    moviedescription: { type: String, required: true }
+    moviedescription: { type: String},
+    seatBooked: [
+      {
+        userId: {
+          type:mongoose.Schema.Types.ObjectId,
+          ref:"User"
+        },
+        seatNumber: [{
+          type: Number,
+          default: 0,
+        }],
+      },
+    ]
+
   },
   { timestamps: true }
 );

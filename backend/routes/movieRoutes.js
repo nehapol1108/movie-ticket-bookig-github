@@ -5,4 +5,5 @@ const movieContoller = require('../controllers/movieControllers')
 router.post('/',movieContoller.postMovie);
 router.get('/',movieContoller.getAllMovies);
 router.get('/:id',movieContoller.getMovieById);
+router.post('/book',movieContoller.bookMovie);
 module.exports=router;
