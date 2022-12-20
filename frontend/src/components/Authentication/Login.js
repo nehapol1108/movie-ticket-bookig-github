@@ -69,7 +69,7 @@ const Login = () => {
     }
   return (
     
-    <VStack spacing='5px'>
+    <VStack spacing='20px'>
 
         <FormControl id='emaill' isRequired>
             <FormLabel>Email</FormLabel>

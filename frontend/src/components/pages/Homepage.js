@@ -3,13 +3,14 @@ import {Container,Box,Text,TabPanel,Tabs,TabList,Tab,TabPanels} from "@chakra-ui
 import Login from '../Authentication/Login';
 import Signup from '../Authentication/Signup';
 import "../../App.css"
+import Homepagenav from './Homepagenav';
 
 const HomePage = () => {
  
   return (
 
     <div className='App4'>
-     
+     <Homepagenav/>
     <Container maxW='xl' centerContent>
       <Box display='flex' 
       justifyContent='center' 

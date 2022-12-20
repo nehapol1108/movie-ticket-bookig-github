@@ -3,7 +3,7 @@ import Requests from "../api/requests.js";
 import "../cssfile/movies.css"
 import { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
-
+import logo from "./poster/poster1.jpg"
 
 const Movies = () => {
     const [loading, setLoading] = useState(false)
@@ -24,7 +24,7 @@ const Movies = () => {
       }, []);
     const movieInfo = movieData.map((movie)=>(
       <div className="recipe">  
-      <img src="./poster/poster1.jpg"/> 
+      <img className='imgg' src={logo} alt="Logo" />;
       <div className="position">Position :{movie.movietprice} </div>
       <hr/>
       <div className="preedit"><span className="postedit">MovieName : </span> {movie.moviename} </div>
