@@ -116,3 +116,27 @@ module.exports.getMovieById = async (req, res) => {
     });
   }
 };
+
+module.exports.bookMovie = async (req, res) => {
+  try {
+    const {movieId,userId,seatNumber} = req.body;
+    let movie = await MovieEvent.findById(movieId);
+    //console.log(movie)
+    let obj = {
+      userId: req.body.userId,
+      seatNumber:req.body.seatNumber
+    };
+    movie.seatBooked.push(obj);
+    await movie.save(); //saving it to the database
+    res.send(movie);
+  } catch (err) {
+    return res.json({
+      status: false,
+      data: null,
+      error: {
+        code: 500,
+        message: "Error in getting movie!" + err,
+      },
+    });
+  }
+};

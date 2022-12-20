@@ -4,18 +4,18 @@ const seatSchema = mongoose.Schema(
   {
     movieId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: MovieEvent,
+      ref: "MovieEvent",
     },
     seatBooked: [
       {
-        userName: {
-          type: String,
-          default: "",
+        userId: {
+          type:mongoose.Schema.Types.ObjectId,
+          ref:"User"
         },
-        seatId: {
+        seatNumber: [{
           type: Number,
           default: 0,
-        },
+        }],
       },
     ],
   },

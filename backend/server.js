@@ -10,19 +10,8 @@ const movieRoutes = require("./routes/movieRoutes");
 const seatRoutes = require("./routes/seatRoutes");
 mongoose.set("strictQuery", false);
 dotenv.config();
-// connectDB();
-mongoose.connect(
-  "mongodb://localhost:27017/booking",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  (err) => {
-    if (err) {
-      console.log(err);
-    } else console.log("success");
-  }
-);
+connectDB();
+
 
 app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
@@ -31,6 +20,5 @@ app.get("/", (req, res) => {
 
 app.use("/api/user", userRoutes);
 app.use("/api/movie", movieRoutes);
-app.use("/api/seat", seatRoutes);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, console.log(`server listening on ${PORT}`));
