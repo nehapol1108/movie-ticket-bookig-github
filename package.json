@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon backend/server.js"
   },
-  "author": "sumit pol",
+  "author": "sumit ",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
