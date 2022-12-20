@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <>
       <header id="header" className="d-flex align-items-center ">
-        <div className="container d-flex align-items-center justify-content-between">
+        <div className="container d-flex align-items-center justify-content-between colorr">
           <h1 className="logo">
             <a href="/">
             Movie Booking Website<span></span>
