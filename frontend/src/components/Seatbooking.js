@@ -84,7 +84,7 @@ class DrawGrid extends React.Component {
             </tr>
           </tbody>
         </table>
-        <button type="button" className="btn-success btnmargin" onClick={() => this.props.handleSubmited()}>Confirm Booking</button>
+        <button type="button" className="btn btn-success btnmargin" onClick={() => this.props.handleSubmited()}>Confirm Booking</button>
       </div>
       )
     }
