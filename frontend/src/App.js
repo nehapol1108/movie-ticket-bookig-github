@@ -1,8 +1,9 @@
 import './App.css';
 import Homepage from './components/pages/Homepage';
 import MoviePage from './components/pages/MoviePage';
-import { HallForm } from './components/HallForm';
+// import { HallForm } from './components/HallForm';
 import {Route} from "react-router-dom"
+import Moviebooking from './components/pages/Moviebooking';
 function App() {
   return (
     <>
@@ -13,7 +14,7 @@ function App() {
     <Route path="/movies" component={MoviePage}/> 
     </div>
     <div>   
-    <Route path="/seat" component={HallForm}/> 
+    <Route path="/seat" component={Moviebooking}/> 
     </div>
    
     </>

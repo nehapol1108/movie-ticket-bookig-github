@@ -119,7 +119,7 @@ module.exports.getMovieById = async (req, res) => {
 
 module.exports.bookMovie = async (req, res) => {
   try {
-    const {movieId,userId,seatNumber} = req.body;
+    const {movieId} = req.body;
     let movie = await MovieEvent.findById(movieId);
     //console.log(movie)
     let obj = {

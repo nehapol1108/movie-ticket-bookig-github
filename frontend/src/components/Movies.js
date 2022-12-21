@@ -6,11 +6,14 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useToast } from '@chakra-ui/react';
+import { Link } from "react-router-dom";               
+
 const Movies = () => {
   const [loading, setLoading] = useState(false)
   const [movieData, setMovieData] = useState([]);
   let history = useHistory();
   const toast = useToast();
+  const data = "neha";
   const fetchMovie=async()=>{
     try{
       const userInfo = await JSON.parse(localStorage.getItem("userInfo"));
@@ -56,9 +59,7 @@ const Movies = () => {
     return;
   }
   }
- const handleClick=()=>{
-   history.push("/seat");
- }
+ 
 
     useEffect(() => {
        fetchMovie();
@@ -72,16 +73,10 @@ const Movies = () => {
       <div className="preedit"><span className="postedit">Movie Ticket Price : </span>{movie.movietprice} </div>
       <div className="preedit"><span className="postedit">Movie Time : </span>{movie.movietime}</div>
       <div className="preedit"><span className="postedit">Movie Description : </span>{movie?.description}</div>
-      
-      {/* <button className="bg-danger" onClick={(e) => deleteHandler(post.id)}>Delete Job</button>
-      <button className="bg-primary">Applied by</button> */}
-      <div className="buttons" onClick={handleClick}>
-      <button className="bg-danger btnpost" >Book Tickets</button>
-      
-     {/* // <Link className="bg-primary btnpost" to="/displayapplied"> Applied by</Link> */}
 
-    </div>
-      
+     
+    <Link className='btn-warning btn'to={{pathname: "/seat",state: { movieid: movie._id, }, }}>Book tickets</Link>
+   
     </div>
 
   
