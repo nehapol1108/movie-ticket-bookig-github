@@ -1,5 +1,4 @@
 import React from 'react'
-import Requests from "../api/requests.js";
 import "../cssfile/movies.css"
 import { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
@@ -9,11 +8,8 @@ import { useToast } from '@chakra-ui/react';
 import { Link } from "react-router-dom";               
 
 const Movies = () => {
-  const [loading, setLoading] = useState(false)
   const [movieData, setMovieData] = useState([]);
-  let history = useHistory();
   const toast = useToast();
-  const data = "neha";
   const fetchMovie=async()=>{
     try{
       const userInfo = await JSON.parse(localStorage.getItem("userInfo"));
@@ -28,24 +24,17 @@ const Movies = () => {
         });
         return;
       }
-      console.log(userInfo);
-      console.log(userInfo.token);
-      setLoading(true);
+      // console.log(userInfo);
+      // console.log(userInfo.token);
+      
       const config={
         headers:{
           Authorization:`Bearer ${userInfo.token}`,
         },
       };
       const {data} = await axios.get("/api/movie",config);
-      setLoading(false);
+     
       setMovieData(data.data);
-      // console.log(movieData);
-      // console.log(data.data);
-      // data.map((e)=>{
-      //   console.log(e);
-      // })
-
-
   }catch(err){
     toast({
       title: 'Error Occured!',

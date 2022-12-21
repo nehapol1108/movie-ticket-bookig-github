@@ -10,7 +10,7 @@ const Moviebooking = () => {
   return (
     <>
     <Navbar/>
-    <MovieBooking/>
+    <MovieBooking movieId={movieid}/>
     <Footer/>
     </>
   )

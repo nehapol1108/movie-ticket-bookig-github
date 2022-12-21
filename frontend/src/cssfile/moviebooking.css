@@ -14,7 +14,7 @@
     background: #222222;
     color: #222222;
     font-size: 14px;
-    width: 100%;
+    width: 30%;
     min-height: 20vh;
     display: grid;
     place-items: center;
@@ -41,9 +41,14 @@
     border-radius: 4px;
     color: #7e7e7e;
   }
+  .ShowCase{
+    margin-top: 20px;
   
+  }
   .ShowCase li {
     margin: 0 12px;
+    font-size: large;
+
   }
   
   .Cinema {
@@ -56,7 +61,7 @@
   }
   
   .Cinema .screen {
-    height: 70px;
+    height: 100px;
     background: white;
     width: 100%;
     transform: rotateX(-30deg) scale(1.1);
@@ -115,12 +120,11 @@
   .seat {
     display: inline-block;
     background: #626262;
-    width: 16px;
-    height: 12px;
+    width: 20px;
+    height: 20px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     transition: transform 0.3s ease-in-out;
-  
     position: relative;
     top: 1px;
   }
