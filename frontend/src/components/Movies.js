@@ -72,10 +72,10 @@ const Movies = () => {
       <div className="preedit"><span className="postedit">MovieName : </span> {movie.moviename} </div>
       <div className="preedit"><span className="postedit">Movie Ticket Price : </span>{movie.movietprice} </div>
       <div className="preedit"><span className="postedit">Movie Time : </span>{movie.movietime}</div>
-      <div className="preedit"><span className="postedit">Movie Description : </span>{movie?.description}</div>
+      <div className="preedit"><span className="postedit">Movie Description : </span>{movie?.moviedescription}</div>
 
      
-    <Link className='btn-warning btn'to={{pathname: "/seat",state: { movieid: movie._id, }, }}>Book tickets</Link>
+    <Link className='btn-danger btn buttoncustom'to={{pathname: "/seat",state: { movieid: movie._id, }, }}>Book tickets</Link>
    
     </div>
 
