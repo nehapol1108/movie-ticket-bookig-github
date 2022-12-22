@@ -310,12 +310,14 @@ grid-gap: 1rem;
 }
 
 .recipe {
+  
 background-color: var(--dark);
 padding: 1rem;
 border-radius: 0.5rem;
 text-align: left;
 }
 .position{
+  
 font-size: 25px;
 font-weight: 500;
 }

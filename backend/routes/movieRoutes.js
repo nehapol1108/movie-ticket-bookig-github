@@ -6,4 +6,5 @@ router.post('/',movieContoller.postMovie);
 router.get('/',protect,movieContoller.getAllMovies);
 router.get('/:id',movieContoller.getMovieById);
 router.post('/book',movieContoller.bookMovie);
+router.put('/book',movieContoller.updateMovie);
 module.exports=router;

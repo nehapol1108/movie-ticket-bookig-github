@@ -59,8 +59,6 @@ export default function MovieBooking({movieId}) {
       };
       const {data} = await axios.get(`/api/movie/${movieId}`,config);
       setLoading(false);
-      
-      console.log(data.data.data.moviename);
       setMoviename(data.data.data.moviename);
       setMoviepic(data.data.data.moviepic);
       setMovietprice(data.data.data.movietprice);
@@ -91,17 +89,19 @@ export default function MovieBooking({movieId}) {
        <div>
     
     <div className="App11">
-    <div className="mainn">
-        <div className="recipe" >  
-      <img className='imgg' src={moviepic} alt="Logo" />
-      <hr/>
-      <div className="preedit"><span className="postedit">MovieName : </span> {moviename} </div>
-      <div className="preedit"><span className="postedit">Movie Ticket Price : </span>{movietprice} </div>
-      <div className="preedit"><span className="postedit">Movie Time : </span>{movietime}</div>
-   
-    </div>
-       
-        </div>
+          <div className="mainnn">
+          <div className="recipess">
+              <div className="recipe" >  
+            <img className='imgg' src={moviepic} alt="Logo" />
+            <hr/>
+            <div className="preedit"><span className="postedit">MovieName : </span> {moviename} </div>
+            <div className="preedit"><span className="postedit">Movie Ticket Price : </span>{movietprice} </div>
+            <div className="preedit"><span className="postedit">Movie Time : </span>{movietime}</div>
+        
+          </div>
+          </div>
+            
+              </div>
       {/* <Movies
         movie={selectedMovie}
         onChange={movie => {

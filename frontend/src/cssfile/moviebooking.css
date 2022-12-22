@@ -7,6 +7,7 @@
     display: flex;
     flex-flow: column;
     align-items: center;
+    
   }
   
   .Movies {
@@ -148,3 +149,23 @@
   .info .total {
     color: #7bc47f;
   }
+  .recipess{
+    display: grid;
+    max-width: 1024px;
+    margin: 2rem 0;
+    align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-gap: 1rem;
+  }
+  .mainnn{
+    margin: auto 0;
+    margin-left: 35%;
+    padding: 0;
+    align-items: center;
+    box-sizing: border-box;
+    font-family: 'Fira sans', sans-serif;
+    color: var(--light);
+    text-align: center;
+    padding-top: 4rem;
+    
+    }

@@ -14,13 +14,17 @@ const movieSchema = mongoose.Schema(
     seatBooked: [
       {
         userId: {
-          type:mongoose.Schema.Types.ObjectId,
-          ref:"User"
+          type:String,
+          default:"neha"
         },
-        seatNumber: [{
-          type: Number,
-          default: 0,
-        }],
+        seatNumber: {
+          type: String,
+          default: "0",
+        },
+        occupied: {
+          type: Boolean,
+          default: false,
+        }
       },
     ]
 
