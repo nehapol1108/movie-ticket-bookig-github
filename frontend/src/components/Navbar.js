@@ -42,7 +42,7 @@ export default function Navbar() {
                 <a
                   className="nav-link scrollto"
                   onClick={HideNavbar}
-                  href="#hero"
+                  href="/movies"
                 >
                   <i className="bi bi-house"></i>Home
                 </a>
@@ -66,6 +66,17 @@ export default function Navbar() {
                   <i className="bi bi-question-circle"></i>FAQs
                 </a>
               </li>
+
+              <li>
+                <a
+                  className="nav-link scrollto"
+                  onClick={HideNavbar}
+                  href="/booked"
+                >
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAH1JREFUSEvtlUsOgCAMRIeTqTfXk2lMxIUGfJnYbpRtB4bXDxQFrxJ8vtINZklDg2qPTUeM6m4E60PKKjHV/QbNhJ7Nc+0imluqs2vQ66JF0ljZXAI8n+kGFN0eNIpuFzncgKLbBHQj1dlz8GGDN+ag+1TQNsW69D8Z34wKN2WtKBmr5BH3AAAAAElFTkSuQmCC"/>
+                    <p>   Movies Booked</p>
+                </a>
+              </li>
             
               <li onClick={handleLogout}>
                 <a
@@ -73,6 +84,7 @@ export default function Navbar() {
                   onClick={HideNavbar}
                   href="#contact"
                 >
+                  
                   <i className="bi bi-question-circle"></i>Logout
                 </a>
               </li>

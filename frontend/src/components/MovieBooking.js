@@ -3,40 +3,22 @@ import React, { useState ,useEffect} from 'react'
 import clsx from 'clsx'
 import axios from "axios";
 import { useToast } from '@chakra-ui/react';
-const movies = [
-  {
-    name: 'Avenger',
-    price: 10,
-    occupied: [20, 21, 30, 1, 2, 8],
-  },
-  {
-    name: 'Joker',
-    price: 12,
-    occupied: [9, 41, 35, 11, 65, 26],
-  },
-  {
-    name: 'Toy story',
-    price: 8,
-    occupied: [37, 25, 44, 13, 2, 3],
-  },
-  {
-    name: 'the lion king',
-    price: 9,
-    occupied: [10, 12, 50, 33, 28, 47],
-  },
-]
+import { Link } from "react-router-dom";
 
-const seats = Array.from({ length: 8 * 8 }, (_, i) => i);
+const seats = Array.from({ length: 8 * 8 }, (_, i) => i+1);
 
 
-export default function MovieBooking({movieId}) {
+export default function MovieBooking({movieId,movies}) {
   const toast = useToast();
   const [loading, setLoading] = useState(false);
   const [moviename,setMoviename]=useState();
+  const [userId,setuserId]=useState();
   const [moviepic,setMoviepic]=useState();
   const [movietprice,setMovietprice]=useState();
   const [movietime,setMovietime]=useState();
+  const [seatBooking,setseatBooking]=useState([]);
  
+
   const fetchMovie=async()=>{
     try{
       const userInfo = await JSON.parse(localStorage.getItem("userInfo"));
@@ -57,12 +39,16 @@ export default function MovieBooking({movieId}) {
           Authorization:`Bearer ${userInfo.token}`,
         },
       };
+      
       const {data} = await axios.get(`/api/movie/${movieId}`,config);
+      setuserId(userInfo._id);
       setLoading(false);
       setMoviename(data.data.data.moviename);
       setMoviepic(data.data.data.moviepic);
       setMovietprice(data.data.data.movietprice);
       setMovietime(data.data.data.movietime);
+      setseatBooking(data.data.data.seatBooked);
+     
   }catch(err){
     toast({
       title: 'Error Occured!',
@@ -75,6 +61,55 @@ export default function MovieBooking({movieId}) {
     console.log("movie provider" + err.message);
     return;
   }
+  }
+  const bookSeats=async()=>{
+      selectedSeats.map((ele)=>{
+        console.log(ele)
+      })
+      let seatNumber = selectedSeats
+      if(selectedSeats.length===0){
+        toast({
+          title: 'None seat selected',
+          status: 'warning',
+          duration: 5000,
+          isClosable: true,
+          position: "bottom",
+      });
+      }
+      try{
+        const config = {
+            headers:{
+                "Content-type":"application/json",
+            },
+        };
+        const {data} = await axios.put(
+        "/api/movie/book",
+        {userId,movieId,seatNumber},
+        config
+        );
+        console.log(data);
+        toast({
+            title: 'Seat Booked successfully',
+            status: 'success',
+            duration: 5000,
+            isClosable: true,
+            position: "bottom",
+        });
+        
+        setLoading(false);
+
+    }catch(err){
+        toast({
+            title: 'Error occured',
+            status: 'warning',
+            description:err.response.data.message,
+            duration: 5000,
+            isClosable: true,
+            position: "bottom",
+        });
+        console.log(err.message);
+        setLoading(false);
+    }
   }
  
   useEffect(() => {
@@ -101,31 +136,21 @@ export default function MovieBooking({movieId}) {
           </div>
           </div>
             
-              </div>
-      {/* <Movies
-        movie={selectedMovie}
-        onChange={movie => {
-          setSelectedSeats([])
-          setSelectedMovie(movie)
-        }}
-      /> */}
-
+          </div>
+ 
       <ShowCase />
-   
-     
       <Cinema
         movie={selectedMovie}
         selectedSeats={selectedSeats}
         onSelectedSeatsChange={selectedSeats => setSelectedSeats(selectedSeats)}
       />
- 
-      <p className="info">
-        You have selected <span className="count">{selectedSeats.length}</span>{' '}
-        seats for the price of{' '} 
-        <span className="total">
-          {selectedSeats.length * selectedMovie.price}$
-        </span>
-      </p>
+      {
+      selectedSeats.length>0 &&  <Link to={{pathname: "/booked"}}> <button className="btn btn-success" onClick={bookSeats}>Confirm Booking</button></Link>
+      }
+      {
+      selectedSeats.length===0 &&  <button className="btn btn-success" disabled>Confirm Booking</button>
+      }
+     
      
     </div>
    </div>
@@ -136,27 +161,6 @@ export default function MovieBooking({movieId}) {
   )
 }
 
-
-// function Movies({ movie, onChange }) {
-//   return (
-//     <div className="Movies">
-//       <label htmlFor="movie">Pick a movie</label>
-//       <select
-//         id="movie"
-//         value={movie.name}
-//         onChange={e => {
-//           onChange(movies.find(movie => movie.name === e.target.value))
-//         }}
-//       >
-//         {/* {movies.map(movie => (
-//           <option key={movie.name} value={movie.name}>
-//             {movie.name} (${movie.price})
-//           </option>
-//         ))} */}
-//       </select>
-//     </div>
-//   )
-// }
 
 function ShowCase() {
   return (
@@ -195,6 +199,7 @@ function Cinema({ movie, selectedSeats, onSelectedSeatsChange }) {
           const isSelected = selectedSeats.includes(seat)
           const isOccupied = movie.occupied.includes(seat)
           return (
+            <>
             <span
               tabIndex="0"
               key={seat}
@@ -214,6 +219,8 @@ function Cinema({ movie, selectedSeats, onSelectedSeatsChange }) {
                     }
               }
             />
+           
+            </>
           )
         })}
       </div>

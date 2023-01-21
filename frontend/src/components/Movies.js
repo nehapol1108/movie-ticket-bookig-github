@@ -64,7 +64,7 @@ const Movies = () => {
       <div className="preedit"><span className="postedit">Movie Description : </span>{movie?.moviedescription}</div>
 
      
-    <Link className='btn-danger btn buttoncustom'to={{pathname: "/seat",state: { movieid: movie._id, }, }}>Book tickets</Link>
+    <Link className='btn-danger btn buttoncustom' to={{pathname: "/seat",state: { movieid: movie._id,movieData:movieData }, }}>Book tickets</Link>
    
     </div>
 

@@ -4,6 +4,7 @@ import MoviePage from './components/pages/MoviePage';
 // import { HallForm } from './components/HallForm';
 import {Route} from "react-router-dom"
 import Moviebooking from './components/pages/Moviebooking';
+import SeatsBooked from './components/pages/SeatsBooked';
 function App() {
   return (
     <>
@@ -15,6 +16,9 @@ function App() {
     </div>
     <div>   
     <Route path="/seat" component={Moviebooking}/> 
+    </div>
+    <div>   
+    <Route path="/booked" component={SeatsBooked}/> 
     </div>
    
     </>

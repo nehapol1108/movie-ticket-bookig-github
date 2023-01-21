@@ -9,7 +9,6 @@ app.use(express.json()); // to accept json data
 
 const userRoutes = require("./routes/userRoutes");
 const movieRoutes = require("./routes/movieRoutes");
-const seatRoutes = require("./routes/seatRoutes");
 mongoose.set("strictQuery", false);
 dotenv.config();
 connectDB();
@@ -19,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.send("API is running");
 });
-app.use(express.urlencoded({ extended: true }));
+
 app.use(cookieParser());
 app.use(cors({
   origin:"http://localhost:3000"

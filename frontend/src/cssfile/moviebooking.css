@@ -87,8 +87,8 @@
   .Cinema .seats .seat:not(.occupied):hover,
   .Cinema .seats .seat:not(.occupied):focus {
     cursor: pointer;
-    background: #c1eac5;
-    transform: scale(1.2);
+    background: #7e7e7e;
+    /* transform: scale(1.2); */
   }
   
   .Cinema .seats .seat.selected::after {

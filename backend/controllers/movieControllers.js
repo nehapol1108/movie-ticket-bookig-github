@@ -1,11 +1,22 @@
-const MovieEvent = require("../models/movieModel");
+const Movie = require("../models/movieModel");
+const User = require("../models/userModel");
 const mongoose = require("mongoose");
 
 
 module.exports.postMovie = async (req, res) => {
    try{
-    const movie = new MovieEvent(req.body);
+    const movie = new Movie(req.body);
     const createMovieEvent = await movie.save();
+    // const user = await User.find();
+    // for(i in user){
+    //   const IndiUser = await User.findById(user[i]._id);
+    //   let obj={
+    //     movieId:createMovieEvent._id
+    //   }
+    //   IndiUser.seatbooked.push(obj);
+    //   await IndiUser.save();
+    //   // console.log(IndiUser);
+    // }
     res.status(201).send(createMovieEvent);
 
   }catch(e){
@@ -17,7 +28,7 @@ module.exports.getAllMovies = async (req, res) => {
   try {
     console.log("[movieEvents: getAllMovies] getting all Movie events");
 
-    const movieEvents = await MovieEvent.find();
+    const movieEvents = await Movie.find();
     if (movieEvents) {
       console.log("[movieEvents: getAllMovies] all movies retrieved");
 
@@ -75,7 +86,7 @@ module.exports.getMovieById = async (req, res) => {
     }
 
     console.log("[movieEvents: getMovieById] movie id is valid");
-    const movieEvent = await MovieEvent.findById(_id);
+    const movieEvent = await Movie.findById(_id);
     if (!movieEvent) {
       const message = "[movieEvents: getMovieById] movie doesn't exists";
 
@@ -119,14 +130,16 @@ module.exports.getMovieById = async (req, res) => {
 
 module.exports.bookMovie = async (req, res) => {
   try {
-    const {movieId} = req.body;
-    let movie = await MovieEvent.findById(movieId);
-    // console.log(movie)
-    let obj = {
-      seatNumber:req.body.seatNumber
-    };
-
-    movie.seatBooked.push(obj);
+    const {movieId,seatnumber} = req.body;
+    let movie = await Movie.findById(movieId);
+   
+    for(i in seatnumber){
+       let obj = {
+          seatNumber:seatnumber[i]
+       }
+       movie.seatBooked.push(obj);
+    }
+   
     await movie.save(); //saving it to the database
     res.send(movie);
   } catch (err) {
@@ -146,16 +159,29 @@ module.exports.updateMovie = async (req, res) => {
     const {movieId,userId,seatNumber} = req.body;
     let updateMovie;
     for(i in seatNumber){
-      updateMovie = await MovieEvent.updateOne({_id:movieId,"seatBooked.seatNumber":seatNumber[i]},
+      updateMovie = await Movie.updateOne({_id:movieId,"seatBooked.seatNumber":seatNumber[i]},
       {$set:{"seatBooked.$.userId":userId,"seatBooked.$.occupied":true}},{new:true}
       )
   
     }
-    const findMovie = await MovieEvent.findById(movieId);
-    // console.log(findMovie);
-    res.send(findMovie);
-   
+    const findUser = await User.findById(userId);
+    let OldArray;
+    const bookedobj = findUser.seatbooked;
+    for(i in bookedobj){
+      if(((bookedobj[i].movieId).toString())===movieId){
+        console.log(movieId);
+         OldArray=bookedobj[i].booked;
+      }
+    }
+   for(i in seatNumber){
+    OldArray.push(seatNumber[i]);
+   }
+  //  console.log(OldArray)
+   const updateUser = await User.updateOne({_id:userId,"seatbooked.movieId":movieId},
+      {$set:{"seatbooked.$.movieId":movieId,"seatbooked.$.booked":OldArray}},{new:true}
+      )
     
+    res.send(updateUser + updateMovie);
   } catch (err) {
     return res.json({
       status: false,
@@ -168,7 +194,3 @@ module.exports.updateMovie = async (req, res) => {
   }
 };
 
-
-// const updateMovie = await MovieEvent.findOneAndUpdate({_id:movieId,"seatBooked.seatNumber":seatNumber},
-//       {$set:{"seatBooked.$.userId":userId,"seatBooked.$.occupied":true}}
-//       )

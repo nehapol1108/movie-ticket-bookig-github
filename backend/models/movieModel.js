@@ -18,8 +18,8 @@ const movieSchema = mongoose.Schema(
           default:"neha"
         },
         seatNumber: {
-          type: String,
-          default: "0",
+          type: Number,
+          default: 0,
         },
         occupied: {
           type: Boolean,
@@ -32,5 +32,5 @@ const movieSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-const MovieEvent = mongoose.model("Movie", movieSchema);
-module.exports = MovieEvent;
+const Movie = mongoose.model("Movie", movieSchema);
+module.exports = Movie;
