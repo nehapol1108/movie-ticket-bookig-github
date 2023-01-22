@@ -18,9 +18,9 @@ connectDB();
 
 
 app.use(express.urlencoded({ extended: true }));
-app.get("/", (req, res) => {
-  res.send("API is running");
-});
+// app.get("/", (req, res) => {
+//   res.send("API is running");
+// });
 
 app.use(cookieParser());
 // app.use(cors({
