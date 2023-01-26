@@ -6,12 +6,15 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useToast } from '@chakra-ui/react';
 import { Link } from "react-router-dom";               
+import Spinner from './Spinner';
 
 const Movies = () => {
   const [movieData, setMovieData] = useState([]);
+  const [loading,setLoading] = useState(false);
   const toast = useToast();
   const fetchMovie=async()=>{
     try{
+      setLoading(true);
       const userInfo = await JSON.parse(localStorage.getItem("userInfo"));
       if(!userInfo){
         toast({
@@ -35,7 +38,9 @@ const Movies = () => {
       const {data} = await axios.get("/api/movie",config);
      
       setMovieData(data.data);
+      setLoading(false);
   }catch(err){
+    setLoading(false);
     toast({
       title: 'Error Occured!',
       description:"Failed to load the search results",
@@ -53,6 +58,7 @@ const Movies = () => {
     useEffect(() => {
        fetchMovie();
       }, []);
+    
 
     const movieInfo = movieData.map((movie)=>(
       <div className="recipe" key={movie?._id}>  
@@ -71,6 +77,10 @@ const Movies = () => {
   
 
     ))
+
+    if (loading) {
+      return <Spinner/>
+    }
   return (
     <>
    <div>
