@@ -19,8 +19,8 @@ const sendMail = (req, res) => {
     let MailGenerator = new Mailgen({
         theme: "default",
         product : {
-            name: "Mailgen",
-            link : 'https://mailgen.js/'
+            name: "MovieBooking",
+            link : 'https://brainy-robe-bull.cyclic.app/'
         }
     })
 
@@ -37,8 +37,7 @@ const sendMail = (req, res) => {
                     }
                 ]
             },
-            outro: 
-            "<p>{seatNumber.map((i)=>{return i;})}</p>"
+            outro: `seat Numbers are ${seatNumber}`
         }
     }
 
