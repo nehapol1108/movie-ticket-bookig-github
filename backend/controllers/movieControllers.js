@@ -200,7 +200,7 @@ module.exports.updateMovie = async (req, res) => {
       console.log("sending mail");
       //SENDING MAIL
       await axios
-      .post("http://brainy-robe-bull.cyclic.app/api/user/email", data)
+      .post("https://brainy-robe-bull.cyclic.app/api/user/email", data)
       .then((res) => {
         console.log(
           "[movieController : updateMovie] after making axios post request to MAILER!",
