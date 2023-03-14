@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 const Mailgen = require('mailgen');
 
-const { EMAIL, PASSWORD } = require('../env.js')
+const { EMAIL, PASSWORD } = require('../cred.js')
 const sendMail = (req, res) => {
 
     const { userEmail,seatNumber,len,name,mname,time,pic,price } = req.body;
