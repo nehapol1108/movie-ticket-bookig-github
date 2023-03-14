@@ -37,13 +37,8 @@ const sendMail = (req, res) => {
                     }
                 ]
             },
-            outro: <>
-            <p>
-              {seatNumber.map((i)=>{
-                    return i;
-              })}
-              </p>
-            </>
+            outro: 
+            "<p>{seatNumber.map((i)=>{return i;})}</p>"
         }
     }
 
