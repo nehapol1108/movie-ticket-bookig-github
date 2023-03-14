@@ -1,7 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import Footer from './Footer'
 import NavbarOther from './NavbarOther'
-import { useToast } from '@chakra-ui/react';
+import {useToast } from '@chakra-ui/react';
+import Spinner from './Spinner';
 export default function UserProfile() {
     const [loading,setLoading] = useState(false);
     const [name,setName] = useState(false);
@@ -22,17 +23,9 @@ export default function UserProfile() {
             });
             return;
           }
-          console.log(userInfo.createdAt)
           setName(userInfo.name);
           setEmail(userInfo.email);
-          setLoading(false);
-          toast({
-            title: 'Profile fetched successfully',
-            status: 'success',
-            duration: 5000,
-            isClosable: true,
-            position: "right",
-        });
+        setLoading(false);
          
       }catch(err){
         toast({
@@ -51,6 +44,10 @@ export default function UserProfile() {
       useEffect(() => {
       fetchUser();
       }, [])
+
+      if(loading){
+        return <Spinner/>
+      }
   return (
    <>
    <NavbarOther/>
