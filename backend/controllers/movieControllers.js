@@ -191,7 +191,7 @@ module.exports.updateMovie = async (req, res) => {
         seatNumber:seatNumber,
         name:findUser.name,
         mname:findMovie.moviename,
-        price:len* (findMovie.movietprice),
+        price:len* (parseInt(findMovie.movietprice)),
         len:len,
         time:findMovie.movietime,
         pic:findMovie.pic

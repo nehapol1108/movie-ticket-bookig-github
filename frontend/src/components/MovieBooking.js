@@ -89,7 +89,7 @@ export default function MovieBooking({movieId,movies}) {
         );
         console.log(data);
         toast({
-            title: 'Seat Booked successfully',
+            title: 'Seat Booked and Mail sent successfully',
             status: 'success',
             duration: 5000,
             isClosable: true,
