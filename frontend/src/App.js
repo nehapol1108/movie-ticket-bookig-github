@@ -5,6 +5,7 @@ import MoviePage from './components/pages/MoviePage';
 import {Route} from "react-router-dom"
 import Moviebooking from './components/pages/Moviebooking';
 import SeatsBooked from './components/pages/SeatsBooked';
+import UserProfile from './components/UserProfile';
 function App() {
   return (
     <>
@@ -19,6 +20,9 @@ function App() {
     </div>
     <div>   
     <Route path="/booked" component={SeatsBooked}/> 
+    </div>
+    <div>   
+    <Route path="/profile" component={UserProfile}/> 
     </div>
    
     </>

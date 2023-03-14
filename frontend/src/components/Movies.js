@@ -2,7 +2,6 @@ import React from 'react'
 import "../cssfile/movies.css"
 import { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
-import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { useToast } from '@chakra-ui/react';
 import { Link } from "react-router-dom";               

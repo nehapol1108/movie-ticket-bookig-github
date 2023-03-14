@@ -1,6 +1,11 @@
 import React from "react";
-
+import { useHistory } from 'react-router-dom';
 export default function Footer() {
+  const history = useHistory();
+  const handleLogout=()=>{
+    localStorage.removeItem("userInfo");
+    history.push("/");
+  }
   return (
     <>
       <footer id="footer" className="footertop text-center text-lg-start text-white footer-pos" style={{backgroundColor: '#1c2331'}}>
@@ -41,19 +46,20 @@ export default function Footer() {
               <div className="col-md-2 col-lg-2 col-xl-2 mx-auto">
                 {/* Links */}
                 <h6 className="text-uppercase fw-bold">Links</h6>
-                <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px', backgroundColor: '#7c4dff', height: '2px'}} />
-                <p className="footertext">
+                <hr className=" mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px', backgroundColor: '#7c4dff', height: '2px'}} />
+                <p className="p-2 footertext">
                   <a href="/" className="text-white">Home</a>
                 </p>
-                <p className="footertext">
+                <p className="p-2 footertext">
                   <a href="/#hero" className="text-white">About Us</a>
                 </p>
-                <p className="footertext">
-                  <a href="/#transaction" className="text-white">Transaction</a>
+  
+                <p className="p-2 footertext">
+                  <a href="/#faq" className="text-white">FAQs</a>
                 </p>
-               
-                <p className="footertext">
-                  <a href="/customers" className="text-white">Customers</a>
+
+                <p className="p-2 footertext">
+                  <a href="/contact" className="text-white">Contact Us</a>
                 </p>
               
               </div>
@@ -63,32 +69,32 @@ export default function Footer() {
                 {/* Links */}
                 <h6 className="text-uppercase fw-bold">Useful links</h6>
                 <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px', backgroundColor: '#7c4dff', height: '2px'}} />
-                <p className="footertext">
-                  <a href="#!" className="text-white">Your Profile</a>
+                <p className="p-2 footertext">
+                  <a href="/profile" className="text-white">Your Profile</a>
                 </p>
-                <p className="footertext">
-                  <a href="#!" className="text-white">Login</a>
+                <p className="p-2 footertext">
+                  <a href="/" className="text-white">Login</a>
                 </p>
-                <p className="footertext">
-                  <a href="#!" className="text-white">Sign Up</a>
+                <p className="p-2 footertext">
+                  <a href="/" className="text-white">Sign Up</a>
                 </p>
-                <p className="footertext">
-                  <a href="#!" className="text-white">Logout</a>
+                <p className="p-2 footertext">
+                  <a href="" className="text-white" onClick={handleLogout}>Logout</a>
                 </p>
               </div>
               {/* Grid column */}
               {/* Grid column */}
               <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0">
                 {/* Links */}
-                <h6 className="text-uppercase fw-bold">Contact</h6>
+                <h6 className="text-uppercase fw-bold">Contact Us</h6>
                 <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px', backgroundColor: '#7c4dff', height: '2px'}} />
-                <p><i className="fa fa-home mr-3" />&nbsp; Hadapsar , Pune</p>
-                <p>
+                <p className="p-2"><i className="fa fa-home mr-3" />&nbsp; Hadapsar , Pune</p>
+                <p className="p-2">
                   <i className="fa fa-envelope mr-3" />&nbsp;
                   transaction@example.com
                 </p>
-                <p><i className="fa fa-phone mr-3" /> &nbsp;+ 01 234 567 88</p>
-                <p><i className="fa fa-print mr-3" /> &nbsp;+ 01 234 567 89</p>
+                <p className="p-2"><i className="fa fa-phone mr-3" /> &nbsp;+ 01 234 567 88</p>
+                <p className="p-2"><i className="fa fa-print mr-3" /> &nbsp;+ 01 234 567 89</p>
               </div>
               {/* Grid column */}
             </div>

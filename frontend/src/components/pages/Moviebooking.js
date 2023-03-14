@@ -1,8 +1,8 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import { useLocation } from "react-router-dom";
 import Footer from '../Footer';
 import MovieBooking from '../MovieBooking';
-import Navbar from '../Navbar';
+import NavbarOther from '../NavbarOther';
 const Moviebooking = () => {
     const location = useLocation();
   const {movieid,movieData }= location.state;
@@ -31,7 +31,7 @@ const Moviebooking = () => {
     
   return (
     <>
-    <Navbar/>
+    <NavbarOther/>
     <MovieBooking movieId={movieid} movies = {movies}/>
     <Footer/>
     </>

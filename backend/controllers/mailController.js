@@ -5,7 +5,6 @@ const { EMAIL, PASSWORD } = require('../cred.js')
 const sendMail = (req, res) => {
 
     const { userEmail,seatNumber,len,name,mname,time,pic,price } = req.body;
-    console.log( userEmail + " " +mname )
     let config = {
         service : 'gmail',
         auth : {
@@ -37,7 +36,8 @@ const sendMail = (req, res) => {
                     }
                 ]
             },
-            outro: `seat Numbers are ${seatNumber}`
+            outro: `seat Numbers are ${seatNumber}`,
+            
         }
     }
 

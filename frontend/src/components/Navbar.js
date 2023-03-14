@@ -66,7 +66,15 @@ export default function Navbar() {
                   <i className="bi bi-question-circle"></i>FAQs
                 </a>
               </li>
-
+              <li>
+                <a
+                  className="nav-link scrollto"
+                  onClick={HideNavbar}
+                  href="/profile"
+                >
+                  <i className="bi bi-people"></i>Profile
+                </a>
+              </li>
               <li>
                 <a
                   className="nav-link scrollto"
@@ -82,7 +90,7 @@ export default function Navbar() {
                 <a
                   className="nav-link scrollto"
                   onClick={HideNavbar}
-                  href="#contact"
+                  href=""
                 >
                   
                   <i className="bi bi-question-circle"></i>Logout

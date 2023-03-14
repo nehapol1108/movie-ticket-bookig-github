@@ -87,7 +87,6 @@ export default function MovieBooking({movieId,movies}) {
         {userId,movieId,seatNumber},
         config
         );
-        console.log(data);
         toast({
             title: 'Seat Booked and Mail sent successfully',
             status: 'success',
