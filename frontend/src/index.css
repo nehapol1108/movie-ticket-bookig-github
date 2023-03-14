@@ -12,6 +12,19 @@ code {
     monospace;
 }
 
+.footertop {
+  margin-top: 5%;
+}
+
+.footertext {
+  font-size: 15px;
+}
+.footer-pos {
+  
+  width: 100%;
+ 
+}
+
 
 .loadingSpinnerContainer {
   position: fixed;
@@ -56,4 +69,13 @@ code {
   .heading p {
     font-size: 1.5rem;
   }
+}
+
+.colorr{
+  background-color: aliceblue;
+}
+.about{
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #000;
 }

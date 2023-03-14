@@ -1,7 +1,7 @@
 const Movie = require("../models/movieModel");
 const User = require("../models/userModel");
 const mongoose = require("mongoose");
-
+const { default: axios } = require("axios");
 
 module.exports.postMovie = async (req, res) => {
    try{
@@ -156,6 +156,7 @@ module.exports.bookMovie = async (req, res) => {
 
 module.exports.updateMovie = async (req, res) => {
   try {
+    console.log("updatadse movei");
     const {movieId,userId,seatNumber} = req.body;
     let updateMovie;
     for(i in seatNumber){
@@ -173,14 +174,47 @@ module.exports.updateMovie = async (req, res) => {
          OldArray=bookedobj[i].booked;
       }
     }
+  let len=0;
    for(i in seatNumber){
     OldArray.push(seatNumber[i]);
+    len=len+1;
    }
   //  console.log(OldArray)
    const updateUser = await User.updateOne({_id:userId,"seatbooked.movieId":movieId},
       {$set:{"seatbooked.$.movieId":movieId,"seatbooked.$.booked":OldArray}},{new:true}
       )
-    
+      console.log("update movei");
+      const findMovie = await Movie.findById(movieId);
+      console.log(len)
+      const data = {
+        userEmail:findUser.email,
+        seatNumber:seatNumber,
+        name:findUser.name,
+        mname:findMovie.moviename,
+        price:len* (findMovie.movietprice),
+        len:len,
+        time:findMovie.movietime,
+        pic:findMovie.pic
+        
+      }
+      console.log("sending mail");
+      //SENDING MAIL
+      await axios
+      .post("http://brainy-robe-bull.cyclic.app/api/user/email", data)
+      .then((res) => {
+        console.log(
+          "[movieController : updateMovie] after making axios post request to MAILER!",
+          res.data
+        );
+      })
+      .catch(function (error) {
+        console.log(
+          "[movieController : updateMovie] error after making axios post request to MAILER",
+          error
+        );
+      });
+
+
     res.send(updateUser + updateMovie);
   } catch (err) {
     return res.json({

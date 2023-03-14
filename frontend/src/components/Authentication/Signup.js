@@ -13,10 +13,12 @@ const Signup = () => {
     const [confirmpassword,setConfirmPassword] = useState();
     const [password,setPassword] = useState();
     const [show,setshow] = useState(false);
+    const [show1,setshow1] = useState(false);
     const [picloading,setLoading] = useState(false); 
     const history = useHistory();
     const toast = useToast();
-    const handleClick =()=> {setshow(!show)};
+    const handleShow1 =()=> {setshow(!show)};
+    const handleShow2 =()=> {setshow1(!show1)};
 
     const submitHandler= async()=>{
         setLoading(true);
@@ -99,7 +101,7 @@ const Signup = () => {
             onChange={(e)=>setPassword(e.target.value)}
             />
             <InputRightElement width="4.5rem">
-                <Button h="1.75rem" size="sm" onClick={handleClick}>
+                <Button h="1.75rem" size="sm" onClick={handleShow1}>
                     {show?"Hide":"Show"}
                 </Button>
             </InputRightElement>
@@ -110,13 +112,13 @@ const Signup = () => {
             <FormLabel>Confirm Password</FormLabel>
             <InputGroup>
             <Input
-            type={show?"text" : "password"}
+            type={show1?"text" : "password"}
             placeholder='Enter Your confirm Password'
             onChange={(e)=>setConfirmPassword (e.target.value)}
             />
             <InputRightElement width="4.5rem">
-                <Button h="1.75rem" size="sm" onClick={handleClick}>
-                    {show?"Hide":"Show"}
+                <Button h="1.75rem" size="sm" onClick={handleShow2}>
+                    {show1?"Hide":"Show"}
                 </Button>
             </InputRightElement>
             </InputGroup>

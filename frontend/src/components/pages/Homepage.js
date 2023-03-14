@@ -15,10 +15,10 @@ const HomePage = () => {
     <Container maxW='xl' centerContent>
       <Box display='flex' 
       justifyContent='center' 
-      p={3} 
+      p={6} 
       bg={"white"}
       w="100%"
-      m="40px 0 15px 0"
+      m="50px 0 15px 0"
       borderRadius="lg"
       borderWidth = "1px" >
         <Text fontSize='4xl' fontFamily="Work sans" color="black" >Movie-Booking-Website</Text>

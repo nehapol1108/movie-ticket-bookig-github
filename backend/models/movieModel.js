@@ -15,7 +15,7 @@ const movieSchema = mongoose.Schema(
       {
         userId: {
           type:String,
-          default:"neha"
+          default:"neha" 
         },
         seatNumber: {
           type: Number,

@@ -1,92 +1,109 @@
-import React from 'react'
-import "../cssfile/footer.css"
-import 'bootstrap/dist/css/bootstrap.css';
-const Footer = () => {
+import React from "react";
+
+export default function Footer() {
   return (
-    <> <footer id="footer" className='colorfooter'>
-    <div className="footer-top">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-4 col-md-6 footer-contact">
-            <h3>
-              PUNE<span>.</span>
-            </h3>
-            <p>
-              Sr. No 27, Pune-Satara Road
-              <br /> Dhankawadi, Pune-411 043,
-              <br />
-              Maharashtra (India).
-              <br />
-              <br />
-              <strong>Phone:</strong> +1 1234567890
-              <br />
-              <strong>Email:</strong> moviebooking@gmail.com
-              <br />
-            </p>
+    <>
+      <footer id="footer" className="footertop text-center text-lg-start text-white footer-pos" style={{backgroundColor: '#1c2331'}}>
+        <section className="d-flex justify-content-between p-4 bg-primary" >
+          <div className="me-5">
+            <span>Get connected with us on social networks:</span>
           </div>
-
-          <div className="col-lg-4 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li>
-                <i className="bx bx-chevron-right"></i>{" "}
-                <a href="#hero">Home</a>
-              </li>
-              <li>
-                <i className="bx bx-chevron-right"></i>{" "}
-                <a href="#hero">About us</a>
-              </li>
-              <li>
-                <i className="bx bx-chevron-right"></i>{" "}
-                <a href="#faq">Faq</a>
-              </li>
-              <li>
-                <i className="bx bx-chevron-right"></i>{" "}
-                <a href="/#faq">Terms of service</a>
-              </li>
-            </ul>
+          <div>
+            <a href className="text-white me-4">
+              <i className="fa fa-facebook-f" />
+            </a>
+            <a href className="text-white me-4">
+              <i className="fa fa-twitter" />
+            </a>
+            <a href className="text-white me-4">
+              <i className="fa fa-instagram" />
+            </a>
+            <a href className="text-white me-4">
+              <i className="fa fa-linkedin" />
+            </a>
+            <a href className="text-white me-4">
+              <i className="fa fa-github" />
+            </a>
           </div>
+        </section>
+        <section className>
+          <div className="container text-center text-md-start">
+            <div className="row mt-3">
+              <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <h6 className="text-uppercase fw-bold">Movie Booking Website</h6>
+                <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px', backgroundColor: '#7c4dff', height: '2px'}} />
+                <p>
+                The company is currently India’s largest entertainment ticketing platform. BookMyShow started out in 1999 as a software re-seller for movie theaters and converted into a platform catering to cloud-based ticket booking of events, movies, sports, and plays. BookMyShow was known by the name of its parent company, Bigtree Entertainment Pvt. Ltd., at the time of its inception.
 
-          <div className="col-lg-4 col-md-6 footer-links">
-            <h4>Our Social Networks</h4>
-            <p>
-              These are our Social media handles to coonect for more
-              information!
-            </p>
-            <div className="social-links mt-3">
-              <a href="/#" className="twitter">
-                <i className="bx bxl-twitter"></i>
-              </a>
-              <a href="/#" className="facebook">
-                <i className="bx bxl-facebook"></i>
-              </a>
-              <a href="/#" className="instagram">
-                <i className="bx bxl-instagram"></i>
-              </a>
-              <a href="/#" className="google-plus">
-                <i className="bx bxl-skype"></i>
-              </a>
-              <a href="/#" className="linkedin">
-                <i className="bx bxl-linkedin"></i>
-              </a>
+
+                </p>
+              </div>
+              <div className="col-md-2 col-lg-2 col-xl-2 mx-auto">
+                {/* Links */}
+                <h6 className="text-uppercase fw-bold">Links</h6>
+                <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px', backgroundColor: '#7c4dff', height: '2px'}} />
+                <p className="footertext">
+                  <a href="/" className="text-white">Home</a>
+                </p>
+                <p className="footertext">
+                  <a href="/#hero" className="text-white">About Us</a>
+                </p>
+                <p className="footertext">
+                  <a href="/#transaction" className="text-white">Transaction</a>
+                </p>
+               
+                <p className="footertext">
+                  <a href="/customers" className="text-white">Customers</a>
+                </p>
+              
+              </div>
+              {/* Grid column */}
+              {/* Grid column */}
+              <div className="col-md-3 col-lg-2 col-xl-2 mx-auto">
+                {/* Links */}
+                <h6 className="text-uppercase fw-bold">Useful links</h6>
+                <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px', backgroundColor: '#7c4dff', height: '2px'}} />
+                <p className="footertext">
+                  <a href="#!" className="text-white">Your Profile</a>
+                </p>
+                <p className="footertext">
+                  <a href="#!" className="text-white">Login</a>
+                </p>
+                <p className="footertext">
+                  <a href="#!" className="text-white">Sign Up</a>
+                </p>
+                <p className="footertext">
+                  <a href="#!" className="text-white">Logout</a>
+                </p>
+              </div>
+              {/* Grid column */}
+              {/* Grid column */}
+              <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0">
+                {/* Links */}
+                <h6 className="text-uppercase fw-bold">Contact</h6>
+                <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px', backgroundColor: '#7c4dff', height: '2px'}} />
+                <p><i className="fa fa-home mr-3" />&nbsp; Hadapsar , Pune</p>
+                <p>
+                  <i className="fa fa-envelope mr-3" />&nbsp;
+                  transaction@example.com
+                </p>
+                <p><i className="fa fa-phone mr-3" /> &nbsp;+ 01 234 567 88</p>
+                <p><i className="fa fa-print mr-3" /> &nbsp;+ 01 234 567 89</p>
+              </div>
+              {/* Grid column */}
             </div>
+            {/* Grid row */}
           </div>
+        </section>
+        {/* Section: Links  */}
+        {/* Copyright */}
+        <div className="text-center" style={{backgroundColor: 'rgba(0, 0, 0, 0.2)'}}>
+          © 2023 Copyright:
+          <a className="text-white" href="https://mdbootstrap.com/">moviebooking@gmail.com</a>
         </div>
-      </div>
-    </div>
+        {/* Copyright */}
+      </footer>
 
-    <div className="container py-4 m-auto">
-      <div className="copyright">
-        &copy; Copyright{" "}
-        <strong>
-          <span>Movie Booking Website</span>
-        </strong>
-        . All Rights Reserved
-      </div>
-    </div>
-  </footer>
-</>
-  )
+    </>
+  );
 }
-
-export default Footer
