@@ -52,7 +52,7 @@ export default function NavbarOther() {
                 <a
                   className="nav-link scrollto"
                   onClick={HideNavbar}
-                  href="/movie"
+                  href="/movies"
                 >
                   <i className="bi bi-question-circle"></i>FAQs
                 </a>

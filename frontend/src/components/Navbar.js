@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+const logo = require("../logo.png")
 export default function Navbar() {
 
   const history = useHistory();
@@ -32,7 +33,7 @@ export default function Navbar() {
       <header id="header" className="d-flex align-items-center ">
         <div className="container d-flex align-items-center justify-content-between colorr">
           <h1 className="logo">
-           
+          
             Movie Booking Website<span></span>
            
           </h1>
