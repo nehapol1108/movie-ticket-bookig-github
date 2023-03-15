@@ -1,12 +1,10 @@
 const mongoose = require("mongoose");
 const Razorpay = require("razorpay");
 var crypto = require("crypto");
-const KEY_ID = "rzp_test_ZZMjC5HNgqvLih";
-const KEY_SECRET = "tSdmBURPnOzOiXGZn74dWdXt";
+
 
 module.exports.payMoney = async (req, res) => {
   const { amount } = req.body;
-  // console.log(process.env.KEY_ID + process.env.KEY_SECRET)
   try {
     let instance = new Razorpay({ key_id: process.env.KEY_ID, key_secret: process.env.KEY_SECRET });
 

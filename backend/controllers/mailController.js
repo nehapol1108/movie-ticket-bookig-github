@@ -1,15 +1,15 @@
 const nodemailer = require('nodemailer');
 const Mailgen = require('mailgen');
-
-const { EMAIL, PASSWORD } = require('../cred.js')
 const sendMail = (req, res) => {
 
     const { userEmail,seatNumber,len,name,mname,time,pic,price } = req.body;
+    console.log(process.env.EMAIL)
+    console.log(process.env.PASSWORD)
     let config = {
         service : 'gmail',
         auth : {
-            user: EMAIL,
-            pass: PASSWORD
+            user: process.env.EMAIL,
+            pass: process.env.PASSWORD
         }
     }
 
@@ -44,7 +44,7 @@ const sendMail = (req, res) => {
     let mail = MailGenerator.generate(response)
 
     let message = {
-        from : EMAIL,
+        from : process.env.EMAIL,
         to : userEmail,
         subject: `Successfull booked tickets for ${mname}`,
         html: mail
