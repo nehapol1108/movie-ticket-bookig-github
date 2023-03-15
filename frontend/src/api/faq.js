@@ -15,6 +15,22 @@ const faq = [
       href: "#faq2",
       ans: "It now sells tickets for anything and everything that has to do with entertainment—movies, plays, fairs, sports, etc",
     },
+    {
+      id: "faq3",
+      icon1: "bi bi-chevron-down icon-show",
+      icons2: "bi bi-chevron-up icon-close",
+      qns: "What are the steps to book a movie?",
+      href: "#faq2",
+      ans: "Firstly you will have to create your account and choose a particular movie to book.Then you will have to select seats which are available and then procees for payment. Once successfull payment is done seats are booked and you will get an email containing all the info about the timings and seats booked.",
+    },
+    {
+      id: "faq3",
+      icon1: "bi bi-chevron-down icon-show",
+      icons2: "bi bi-chevron-up icon-close",
+      qns: "Can we pay the money online?",
+      href: "#faq2",
+      ans: "Yes you can pay the money through UPI, Net banking or using Phone pe,Gpay or paytm.",
+    },
     
   ];
   

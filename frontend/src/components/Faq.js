@@ -3,7 +3,7 @@ import faq from "../api/faq";
 export default function Faq() {
   const [faqData, setfaqData] = useState(faq);
   return (
-    <section id="faq" className="faq section-bg">
+    <section id="faq" className="faq section-bg colorr">
       <div className="container" data-aos="fade-up">
         <div className="section-title">
           <h2>F.A.Q</h2>

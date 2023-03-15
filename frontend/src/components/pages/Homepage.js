@@ -9,7 +9,7 @@ import Homepagenav from './Homepagenav';
 const HomePage = () => {
  
   return (
-
+ <>
     <div className='App4'>
      <Homepagenav/>
     <Container maxW='xl' centerContent>
@@ -42,6 +42,7 @@ const HomePage = () => {
       </Box>
     </Container>
   </div>
+  </>
   )
 }
 
