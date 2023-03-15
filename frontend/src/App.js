@@ -6,14 +6,16 @@ import {Route} from "react-router-dom"
 import Moviebooking from './components/pages/Moviebooking';
 import SeatsBooked from './components/pages/SeatsBooked';
 import UserProfile from './components/UserProfile';
+import Error404 from './components/pages/Error404';
 function App() {
   return (
     <>
+  
     <div className='App'>
     <Route path="/" component={Homepage} exact/> 
     </div>
     <div>   
-    <Route path="/movies" component={MoviePage}/> 
+    <Route path="/movies" component={MoviePage} /> 
     </div>
     <div>   
     <Route path="/seat" component={Moviebooking}/> 
@@ -24,7 +26,11 @@ function App() {
     <div>   
     <Route path="/profile" component={UserProfile}/> 
     </div>
-   
+    
+    {/* <div>   
+    <Route path='' component={Error404}></Route> 
+    </div>
+     */}
     </>
   )
 }

@@ -120,3 +120,51 @@ code {
   right: 14%;
 }
 
+
+
+
+/* error 404 */
+#mainerror{
+  display: table;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  background-color:aliceblue ;
+}
+
+.fof{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.fof h1{
+  font-size: 50px;
+  display: inline-block;
+  padding-right: 12px;
+  animation: type .5s alternate infinite;
+}
+
+@keyframes type{
+  from{box-shadow: inset -3px 0px 0px #888;}
+  to{box-shadow: inset -3px 0px 0px transparent;}
+}
+
+.errorbutton {
+  border: 1px solid white;
+  background: transparent;
+  outline: none;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  background-color:cornflowerblue ;
+  transition: background-color 200ms ease-in;
+  margin: 20px 0;
+}
+
+.errorbutton:hover{
+  background-color: white;
+  color: #555;
+  cursor: pointer;
+}

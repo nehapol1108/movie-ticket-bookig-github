@@ -91,7 +91,7 @@ export default function Footer() {
                 <p className="p-2"><i className="fa fa-home mr-3" />&nbsp; Hadapsar , Pune</p>
                 <p className="p-2">
                   <i className="fa fa-envelope mr-3" />&nbsp;
-                  transaction@example.com
+                  moviebooking.com
                 </p>
                 <p className="p-2"><i className="fa fa-phone mr-3" /> &nbsp;+ 01 234 567 88</p>
                 <p className="p-2"><i className="fa fa-print mr-3" /> &nbsp;+ 01 234 567 89</p>

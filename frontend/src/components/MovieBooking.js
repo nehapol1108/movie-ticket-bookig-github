@@ -4,6 +4,8 @@ import clsx from 'clsx'
 import axios from "axios";
 import { useToast } from '@chakra-ui/react';
 import { Link } from "react-router-dom";
+import {useHistory} from "react-router-dom"
+import Spinner from './Spinner';
 
 const seats = Array.from({ length: 8 * 8 }, (_, i) => i+1);
 
@@ -17,7 +19,7 @@ export default function MovieBooking({movieId,movies}) {
   const [movietprice,setMovietprice]=useState();
   const [movietime,setMovietime]=useState();
   const [seatBooking,setseatBooking]=useState([]);
- 
+  const history = useHistory();
 
   const fetchMovie=async()=>{
     try{
@@ -62,26 +64,16 @@ export default function MovieBooking({movieId,movies}) {
     return;
   }
   }
-  const bookSeats=async()=>{
-      selectedSeats.map((ele)=>{
-        console.log(ele)
-      })
-      let seatNumber = selectedSeats
-      if(selectedSeats.length===0){
-        toast({
-          title: 'None seat selected',
-          status: 'warning',
-          duration: 5000,
-          isClosable: true,
-          position: "bottom",
-      });
-      }
+
+  const handleBookSeats=async()=>{
+    let seatNumber = selectedSeats;
       try{
         const config = {
-            headers:{
-                "Content-type":"application/json",
-            },
-        };
+          headers:{
+              "Content-type":"application/json",
+          },
+      };
+        
         const {data} = await axios.put(
         "/api/movie/book",
         {userId,movieId,seatNumber},
@@ -96,8 +88,90 @@ export default function MovieBooking({movieId,movies}) {
         });
         
         setLoading(false);
+        history.push("/booked");
 
     }catch(err){
+        toast({
+            title: 'Error occured',
+            status: 'warning',
+            description:err.response.data.message,
+            duration: 5000,
+            isClosable: true,
+            position: "bottom",
+        });
+        console.log(err.message);
+        setLoading(false);
+    }
+  }
+
+  const handleOpenRazorpay=async(data)=>{
+    try{
+      setLoading(true);
+      const config = {
+        headers:{
+            "Content-type":"application/json",
+        },
+    };
+      const options = {
+        key : process.env.KEY_ID,
+        amount:Number(data.amount),
+        currency:data.currency,
+        name:'Movie booking Website',
+        description:'XYZ',
+        order_id:data.id,
+        handler: function (response){
+         console.log(response,"114");
+         axios.post("/api/movie/verify",{response:response},config)
+         .then(res=>{
+          setLoading(true);
+            console.log(res);
+            handleBookSeats();
+            setLoading(false);
+         })
+         .catch(err=>{
+          console.log(err);
+          setLoading(false);
+         })
+
+        }
+      }
+      const rzp = new window.Razorpay(options);
+      rzp.open();
+
+
+
+    }catch(err){
+        toast({
+          title: 'Error occured',
+          status: 'warning',
+          description:err.response.data.message,
+          duration: 5000,
+          isClosable: true,
+          position: "bottom",
+      });
+      console.log(err.message);
+      setLoading(false);
+    }
+     
+
+
+
+  }
+  const handlePayment=async(amount)=>{
+    console.log("payment")
+    setLoading(true);
+      try{
+        const config = {
+          headers:{
+              "Content-type":"application/json",
+          },
+      };
+        const {data} = await axios.post("/api/movie/payment",{amount},config);
+        handleOpenRazorpay(data.data);
+        setLoading(false);
+        console.log("payment")
+    }catch(err){
+       
         toast({
             title: 'Error occured',
             status: 'warning',
@@ -117,7 +191,9 @@ export default function MovieBooking({movieId,movies}) {
   const [selectedMovie, setSelectedMovie] = useState(movies[0]);
   const [selectedSeats, setSelectedSeats] = useState([]);
   
-
+  if(loading){
+    return <Spinner/>
+  }
   return (
     <>
        <div>
@@ -144,10 +220,10 @@ export default function MovieBooking({movieId,movies}) {
         onSelectedSeatsChange={selectedSeats => setSelectedSeats(selectedSeats)}
       />
       {
-      selectedSeats.length>0 &&  <Link to={{pathname: "/booked"}}> <button className="btn btn-success" onClick={bookSeats}>Confirm Booking</button></Link>
+      selectedSeats.length>0 &&  <button className="btn btn-success" onClick={()=>handlePayment((selectedSeats.length) * parseInt(movietprice))}>Confirm Booking and Pay money</button>
       }
       {
-      selectedSeats.length===0 &&  <button className="btn btn-success" disabled>Confirm Booking</button>
+      selectedSeats.length===0 &&  <button className="btn btn-success" disabled>Confirm Booking and Pay money</button>
       }
      
      

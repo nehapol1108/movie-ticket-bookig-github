@@ -279,7 +279,7 @@ mark {
 }
 /* cards */
 .mainn{
-margin: auto 0;
+margin: 0;
 padding: 0;
 box-sizing: border-box;
 font-family: 'Fira sans', sans-serif;
@@ -289,7 +289,7 @@ padding-top: 4rem;
 
 }
 .postmain{
-align-items: center;
+align-items: left;
 }
 
 .recipes {
