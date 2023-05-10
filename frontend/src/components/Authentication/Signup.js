@@ -114,12 +114,14 @@ const Signup = () => {
             />
         </FormControl>
 
+
         <FormControl id='password' isRequired>
             <FormLabel>Password</FormLabel>
             <InputGroup>
             <Input
             type={show?"text" : "password"}
-            placeholder='Enter Your Password'
+            width="100%"
+            placeholder='Password'
             onChange={((e)=>validate(e.target.value)) }
             />
             <InputRightElement width="4.5rem">
@@ -132,10 +134,11 @@ const Signup = () => {
 
         <FormControl id='conpassword' isRequired>
             <FormLabel>Confirm Password</FormLabel>
-            <InputGroup>
+            <InputGroup  width="100%">
             <Input
+            width="100%"
             type={show1?"text" : "password"}
-            placeholder='Enter Your confirm Password'
+            placeholder='Confirm Password'
             onChange={(e)=>setConfirmPassword (e.target.value)}
             />
             <InputRightElement width="4.5rem">
