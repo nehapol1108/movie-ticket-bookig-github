@@ -7,16 +7,6 @@ module.exports.postMovie = async (req, res) => {
    try{
     const movie = new Movie(req.body);
     const createMovieEvent = await movie.save();
-    // const user = await User.find();
-    // for(i in user){
-    //   const IndiUser = await User.findById(user[i]._id);
-    //   let obj={
-    //     movieId:createMovieEvent._id
-    //   }
-    //   IndiUser.seatbooked.push(obj);
-    //   await IndiUser.save();
-    //   // console.log(IndiUser);
-    // }
     res.status(201).send(createMovieEvent);
 
   }catch(e){

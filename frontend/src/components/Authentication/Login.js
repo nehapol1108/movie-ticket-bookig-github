@@ -6,7 +6,9 @@ import { Input, InputGroup, InputRightElement } from "@chakra-ui/input";
 import { useToast } from "@chakra-ui/toast";
 import { VStack } from "@chakra-ui/layout";
 import axios from "axios";
-import {useHistory} from "react-router-dom"
+import {useHistory} from "react-router-dom";
+import validator from 'validator'
+
 const Login = () => {
     const [email,setEmail] = useState();
     const [password,setPassword] = useState();
@@ -15,10 +17,12 @@ const Login = () => {
     const toast = useToast();
     const history = useHistory();
     const handleClick =()=> {setshow(!show)};
-
+    const [errorMessage, setErrorMessage] = useState('')
+   
     const submitHandler= async()=>{
         setLoading(true);
         if(!email || !password){
+            setErrorMessage('Please fill all the fields');
             toast({
                 title: 'Please fill all the fields',
                 status: 'warning',
@@ -29,6 +33,7 @@ const Login = () => {
             setLoading(false);
             return;
         }
+        setErrorMessage('');
         try{
             const config = {
                 headers:{
@@ -40,6 +45,12 @@ const Login = () => {
             {email,password},
             config
             );
+            console.log("data" + data);
+            if(data==="error"){
+                setErrorMessage('Email or password is incorrect/invalid');
+                setLoading(false);
+                return;
+            }
             toast({
                 title: 'Login Successfull',
                 status: 'success',
@@ -50,10 +61,10 @@ const Login = () => {
             localStorage.setItem('userInfo',JSON.stringify(data));
             // console.log(JSON.stringify(data));
             setLoading(false);
-
             history.push("/movies");
 
         }catch(err){
+            setErrorMessage('Email or password is incorrect/invalid');
             toast({
                 title: 'Error occured',
                 status: 'warning',
@@ -105,7 +116,11 @@ const Login = () => {
         >
            Login
         </Button>
-       
+        {errorMessage === '' ? null :
+        <span style={{
+          fontWeight: 'bold',
+          color: 'red',
+        }}>{errorMessage}</span>}
     </VStack>
   )
 }

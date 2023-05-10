@@ -19,7 +19,9 @@
     min-height: 20vh;
     display: grid;
     place-items: center;
+    align-items: center;
     margin-bottom: 24px;
+    
   }
   
   .Movies select {
@@ -168,4 +170,16 @@
     text-align: center;
     padding-top: 4rem;
     
+    }
+    @media (max-width: 500px) {
+      .mainnn{
+        margin-left: 135%;
+        
+      }
+    }
+   @media only screen and (min-width:501px) and (max-width:700px){
+      .mainnn{
+        margin-left: 120%;
+        
+      }
     }

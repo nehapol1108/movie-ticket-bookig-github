@@ -7,6 +7,7 @@ import { useToast } from "@chakra-ui/toast";
 import { VStack } from "@chakra-ui/layout";
 import axios from "axios";
 import {useHistory} from "react-router-dom"
+import validator from 'validator'
 const Signup = () => {
     const [name,setName] = useState();
     const [email,setEmail] = useState();
@@ -19,10 +20,27 @@ const Signup = () => {
     const toast = useToast();
     const handleShow1 =()=> {setshow(!show)};
     const handleShow2 =()=> {setshow1(!show1)};
-
+    const [errorMessage, setErrorMessage] = useState('')
+ 
+  const validate = (value) => {
+        if (validator.isStrongPassword(value, {
+        minLength: 8, minLowercase: 1,
+        minUppercase: 1, minNumbers: 1, minSymbols: 1
+        })) {
+            setErrorMessage('')
+            setPassword(value);
+        } else {
+            if(value.length<8){
+                setErrorMessage('Password length must be at least 8');
+            }else{
+                setErrorMessage('Password must Contain minimum 1 Uppercase, minimum 1 Lowercase, minimum 1 Number, minimum 1 special symbol');
+            }
+        }
+  }
     const submitHandler= async()=>{
         setLoading(true);
         if(!name || !email || !password || !confirmpassword){
+            setErrorMessage('Please fill all the fields');
             toast({
                 title: 'Please fill all the fields',
                 status: 'warning',
@@ -34,6 +52,7 @@ const Signup = () => {
             return;
         }
         if(password!==confirmpassword){
+            setErrorMessage('Password do not match')
             toast({
                 title: 'Password do not match',
                 status: 'warning',
@@ -44,6 +63,7 @@ const Signup = () => {
             setLoading(false);
             return;
         }
+        setErrorMessage('');
         try{
             const config = {
                 headers:{
@@ -63,6 +83,7 @@ const Signup = () => {
             history.push("/movies");
 
         }catch(err){
+            setErrorMessage(err.response.data.message);
             toast({
                 title: 'Error occured',
                 status: 'warning',
@@ -72,6 +93,7 @@ const Signup = () => {
                 position: "bottom",
             });
             setLoading(false);
+            setErrorMessage('');
         }
     }
   return (
@@ -98,7 +120,7 @@ const Signup = () => {
             <Input
             type={show?"text" : "password"}
             placeholder='Enter Your Password'
-            onChange={(e)=>setPassword(e.target.value)}
+            onChange={((e)=>validate(e.target.value)) }
             />
             <InputRightElement width="4.5rem">
                 <Button h="1.75rem" size="sm" onClick={handleShow1}>
@@ -134,6 +156,12 @@ const Signup = () => {
         >
             Sign Up
         </Button>
+        {errorMessage === '' ? null :
+        <span style={{
+          fontWeight: 'bold',
+          color: 'red',
+        }}>{errorMessage}</span>}
+
     </VStack>
   )
 }
