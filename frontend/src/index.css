@@ -60,7 +60,10 @@
 }
 
 .colorr{
-  background-color: aliceblue;
+  background-color: rgb(227, 242, 255);
+}
+.moviecolor{
+  background-color: rgb(213, 242, 242);
 }
 .about{
   font-size: 1.3rem;

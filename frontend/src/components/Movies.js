@@ -83,7 +83,7 @@ const Movies = () => {
   return (
     <>
    <div>
-      <div className="mainn">
+      <div className="mainn moviecolor">
      <div className="recipes">
           {movieInfo}
         </div>

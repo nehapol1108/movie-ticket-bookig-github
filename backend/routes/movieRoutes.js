@@ -6,6 +6,7 @@ const {protect} =require("../middleware/authMiddleware");
 router.post('/',movieContoller.postMovie);
 router.get('/',protect,movieContoller.getAllMovies);
 router.get('/:id',movieContoller.getMovieById);
+router.delete('/:id',movieContoller.deleteMovieById);
 router.post('/book',movieContoller.bookMovie);
 router.put('/book',movieContoller.updateMovie);
 router.post('/payment',paymentContoller.payMoney);

@@ -13,6 +13,19 @@ module.exports.postMovie = async (req, res) => {
     res.status(400).send(e);
   } 
 };
+
+module.exports.deleteMovieById = async (req, res) => {
+  try{
+   const movie = await Movie.findByIdAndDelete(req.id);
+   if(!movie){
+    res.status(400).send("error");
+   }
+   res.status(201).send(movie);
+
+ }catch(e){
+   res.status(400).send(e);
+ } 
+};
 // get all side events
 module.exports.getAllMovies = async (req, res) => {
   try {
@@ -218,3 +231,5 @@ module.exports.updateMovie = async (req, res) => {
   }
 };
 
+
+// 

@@ -9,7 +9,7 @@ const MoviePage = () => {
    <> 
    <Navbar/>
     <section id="hero" className="d-flex align-items-center colorr">
-          <div className="container" data-aos="zoom-out" data-aos-delay="100">
+          <div className="container " data-aos="zoom-out" data-aos-delay="100">
             <h1>Welcome To<span><br/> Movie Booking Website</span></h1>
             {/* <h2>Movie Booking Website</h2> */}
             <br/>

@@ -8,6 +8,7 @@ import SeatsBooked from "./components/pages/SeatsBooked";
 import UserProfile from "./components/UserProfile";
 import Error404 from "./components/pages/Error404";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
+import postMovie from "./components/AdminPages/PostMovie";
 function App() {
   return (
     <>
@@ -22,6 +23,8 @@ function App() {
           <Route path="/booked" component={SeatsBooked} />
 
           <Route path="/profile" component={UserProfile} />
+
+          <Route path="/postmovie" component={postMovie} />
 
           <Route path="*" component={Error404} />
         </Switch>
